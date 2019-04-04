@@ -1,0 +1,4 @@
+export const SCAN_SERIAL_TO_REGISTER = 'SCAN_SERIAL_TO_REGISTER';
+export const CALL_CUSTOMER_CARE = 'CALL_CUSTOMER_CARE';
+export const REGISTER = 'REGISTER';
+export const ON_TOGGLE = 'ON_TOGGLE';
