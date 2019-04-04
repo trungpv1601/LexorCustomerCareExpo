@@ -4957,13 +4957,6 @@ react-native-branch@2.2.5:
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.2.5.tgz#4074dd63b4973e6397d9ce50e97b57c77a518e9d"
   integrity sha1-QHTdY7SXPmOX2c5Q6XtXx3pRjp0=
 
-react-native-camera@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-2.2.1.tgz#01331f011048545980463b48c83cf63e0eec0ee0"
-  integrity sha512-N4uwZIXirj2Lk5nQlSz/gXiGKxnouLdpSxYM3jqMUmegwPWIaxvjTqggXjEC2V2Go+8/1Z5ytMCLyoO969inHw==
-  dependencies:
-    prop-types "^15.6.2"
-
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
