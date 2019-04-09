@@ -1,3 +1,10 @@
+import { connect } from 'react-redux';
 import HomeWithProfile from './HomeWithProfile';
+import { scanSerialToRegister, register } from './actions';
 
-export default HomeWithProfile;
+const mapStateToProps = (state) => ({});
+
+export default connect(
+	null,
+	{ scanSerialToRegister, register }
+)(HomeWithProfile);

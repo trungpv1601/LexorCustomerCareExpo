@@ -1,10 +1,14 @@
 import { Actions } from 'react-native-router-flux';
 import { CALL_CUSTOMER_CARE } from '../../constants/ActionTypes';
 
-export const callCustomerCare = (text) => {
-	
+export const homeWithProfile = () => {
 	return {
-		type: CALL_CUSTOMER_CARE,
-		payload: text
-	}
-}
+		type: HOME_WITH_PROFILE
+	};
+};
+
+export const noHistory = () => {
+	return {
+		type: NO_HISTORY
+	};
+};

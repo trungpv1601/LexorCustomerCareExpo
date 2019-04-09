@@ -1,3 +1,10 @@
+import { connect } from 'react-redux';
 import ProfileRegistered from './ProfileRegistered';
+import { homeWithProfile, customerProfile } from './actions';
 
-export default ProfileRegistered;
+const mapStateToProps = (state) => ({});
+
+export default connect(
+	null,
+	{ homeWithProfile, customerProfile }
+)(ProfileRegistered);

@@ -1,3 +1,10 @@
+import { connect } from 'react-redux';
 import CustomerProfile from './CustomerProfile';
+import { homeWithProfile, noHistory } from './actions';
 
-export default CustomerProfile;
+const mapStateToProps = (state) => ({});
+
+export default connect(
+	null,
+	{ homeWithProfile, noHistory }
+)(CustomerProfile);

@@ -4,5 +4,5 @@ export const setIsBack = (isBack) => {
 	return {
 		type: ON_TOGGLE,
 		payloads: isBack
-	}
-}
+	};
+};
