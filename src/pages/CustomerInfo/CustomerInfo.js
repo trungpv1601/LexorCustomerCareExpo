@@ -4,6 +4,7 @@ import { Col, Row, Grid } from 'react-native-easy-grid';
 import { ButtonIcon, HeaderLogo } from '../../components';
 import GlobalStyles from '../../constants/GlobalStyles';
 import { Actions } from 'react-native-router-flux';
+import Colors from '../../constants/Colors';
 
 export default class CustomerInfo extends Component {
 	onCorrect = () => {
@@ -92,12 +93,13 @@ const styles = {
 		alignItems: 'center'
 	},
 	confirmText: {
-		color: '#95989a'
+		color: '#95989a',
+		fontSize: GlobalStyles.getAdjustedFontSize(18)
 	},
 	viewConfirmButtonIcon: {
 		flex: 0.8
 	},
 	buttonIconText: {
-		fontSize: GlobalStyles.getAdjustedFontSize(15)
+		fontSize: GlobalStyles.getAdjustedFontSize(16)
 	}
 };

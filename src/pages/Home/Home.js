@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { ScrollView, FlatList, View, Text, Platform } from 'react-native';
-import { ButtonIcon, Header } from '../../components';
+import { ScrollView, FlatList, View, Text } from 'react-native';
+import { ButtonIcon, Header, LineFlat, LineUp } from '../../components';
 import GlobalStyles from '../../constants/GlobalStyles';
+import Colors from '../../constants/Colors';
 
 export default class Home extends Component {
 	constructor(props) {
@@ -159,21 +160,21 @@ export default class Home extends Component {
 						<ButtonIcon icon="ios-person-add" onPress={this.onButtonPressRegister}>
 							Register
 						</ButtonIcon>
-						<View style={styles.lineUp} />
+						<LineUp />
 						<ButtonIcon
 							icon="ios-barcode"
 							onPress={this.onButtonPressScanSerialToRegister}>
 							Scan Serial to Register
 						</ButtonIcon>
 					</View>
-					<View style={styles.lineFlat} />
+					<LineFlat size={1.5} />
 					<View style={{ flex: 0.2 }}>
 						<Text
 							style={{
 								textAlign: 'center',
 								color: '#95989a',
 								fontSize: GlobalStyles.getAdjustedFontSize(18),
-								marginBottom: 20
+								margin: 20
 							}}>
 							Pending Cases
 						</Text>
@@ -185,7 +186,7 @@ export default class Home extends Component {
 							<View key={item} style={styles.row}>
 								<Text style={styles.rowText}>{item.case}</Text>
 								<Text style={styles.rowText}>{item.date}</Text>
-								<Text style={styles.rowText}>{item.status}</Text>
+								<Text style={styles.rowText}>Pending</Text>
 							</View>
 						)}
 						keyExtractor={(item) => item.case}
@@ -225,19 +226,5 @@ const styles = {
 		color: '#ffffff',
 		paddingLeft: 10,
 		paddingRight: 10
-	},
-	lineUp: {
-		backgroundColor: Colors.BACKGROUND_LINE,
-		height: 110,
-		width: 1,
-		marginTop: 20,
-		marginBottom: 10
-	},
-	lineFlat: {
-		backgroundColor: Colors.BACKGROUND_LINE,
-		height: 1.5,
-		width: null,
-		margin: 20,
-		marginTop: 10
 	}
 };

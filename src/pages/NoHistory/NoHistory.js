@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar } from 'react-native';
-import { Col, Row, Grid } from 'react-native-easy-grid';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { ButtonIcon } from '../../components';
+import { LayoutMessage } from '../../layouts';
 import GlobalStyles from '../../constants/GlobalStyles';
-import Colors from '../../constants/Colors';
 
 export default class NoHistory extends Component {
 	handlePressHome = () => {
@@ -14,98 +11,16 @@ export default class NoHistory extends Component {
 
 	render() {
 		return (
-			<View style={styles.container}>
-				<StatusBar backgroundColor={Colors.BACKGROUND} barStyle="light-content" />
-				<View style={styles.header}>
-					<Text style={[GlobalStyles.text, styles.headerText]}>
-						Sorry you no have history.
-					</Text>
-				</View>
-				<View style={styles.lineFlat} />
-				<View style={styles.content}>
-					<Grid>
-						<Col style={{ height: 130 }}>
-							<ButtonIcon icon="ios-home" onPress={this.handlePressHome}>
-								Home
-							</ButtonIcon>
-						</Col>
-					</Grid>
-				</View>
-				<View style={styles.footer}>
-					<Text style={[GlobalStyles.text, styles.footerText]}>
-						Questions? Click bellow.
-					</Text>
-					<Text style={styles.linkPhone}>1(800) 559-3630</Text>
-				</View>
-			</View>
+			<LayoutMessage onPressHome={this.handlePressHome} hideTitle>
+				<Text style={[GlobalStyles.text, styles.text]}>Sorry you no have history.</Text>
+			</LayoutMessage>
 		);
 	}
 }
 
 const styles = {
-	container: {
-		flex: 1,
-		backgroundColor: Colors.BACKGROUND
-	},
-	header: {
-		flex: 0.15,
-		backgroundColor: Colors.BACKGROUND,
-		flexDirection: 'column',
-		justifyContent: 'flex-end',
-		alignItems: 'center'
-	},
-	headerText: {
-		fontSize: GlobalStyles.getAdjustedFontSize(16)
-	},
-	content: {
-		flex: 0.7,
-		backgroundColor: Colors.BACKGROUND,
-		alignItems: 'center',
-		marginLeft: 20,
-		marginRight: 20
-	},
-	footer: {
-		flex: 0.15,
-		backgroundColor: Colors.BACKGROUND,
-		alignItems: 'center',
-		marginLeft: 10,
-		marginRight: 10
-	},
-	footerText: {
-		fontSize: GlobalStyles.getAdjustedFontSize(14),
-		marginBottom: 10
-	},
 	text: {
-		fontSize: GlobalStyles.getAdjustedFontSize(16),
-		marginTop: 10
-	},
-	textInput: {
-		height: 40,
-		borderColor: Colors.TEXT,
-		borderWidth: 1,
-		borderRadius: 3,
-		marginTop: 10,
-		padding: 10,
-		fontSize: GlobalStyles.getAdjustedFontSize(16),
-		color: Colors.TEXT
-	},
-	linkPhone: {
-		color: Colors.LINK,
 		fontSize: GlobalStyles.getAdjustedFontSize(18),
-		textDecorationLine: 'underline'
-	},
-	lineFlat: {
-		backgroundColor: Colors.BACKGROUND_LINE,
-		height: 1,
-		width: null,
-		margin: 20,
 		marginTop: 10
-	},
-	lineUp: {
-		backgroundColor: Colors.BACKGROUND_LINE,
-		height: 100,
-		width: 1,
-		marginTop: 20,
-		marginBottom: 10
 	}
 };

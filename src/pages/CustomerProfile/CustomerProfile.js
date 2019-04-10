@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableOpacity, Linking } from 'react-native';
-import { Col, Row, Grid } from 'react-native-easy-grid';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { Col, Grid } from 'react-native-easy-grid';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Actions } from 'react-native-router-flux';
-import { ButtonIcon, Link } from '../../components';
+import { ButtonIcon, LineUp, Footer } from '../../components';
 import GlobalStyles from '../../constants/GlobalStyles';
+import Colors from '../../constants/Colors';
 
 export default class CustomerProfile extends Component {
-	callCustomerCare = (url) => {
-		// Linking.canOpenURL(url).then((supported) => {
-		// 	if (supported) {
-		// 		Linking.openURL(url);
-		// 	} else {
-		// 		console.log("Don't know how to open URI: " + url);
-		// 	}
-		// });
-	};
-
 	handlePressHome = () => {
 		Actions.homeWithProfile();
 	};
@@ -49,15 +40,15 @@ export default class CustomerProfile extends Component {
 							<Text style={GlobalStyles.text}>Add photo</Text>
 						</TouchableOpacity>
 					</View>
-					<View style={styles.viewConfirmButtonIcon}>
-						<Grid>
-							<Col>
+					<View style={{ flex: 1 }}>
+						<Grid style={styles.viewConfirmButtonIcon}>
+							<Col style={{ height: 130 }}>
 								<ButtonIcon icon="ios-home" onPress={this.handlePressHome}>
 									Home
 								</ButtonIcon>
 							</Col>
-							<View style={styles.lineUp} />
-							<Col>
+							<LineUp />
+							<Col style={{ height: 130 }}>
 								<ButtonIcon icon="ios-list-box" onPress={this.handlePressHistory}>
 									History
 								</ButtonIcon>
@@ -65,17 +56,7 @@ export default class CustomerProfile extends Component {
 						</Grid>
 					</View>
 				</View>
-				<View style={styles.footer}>
-					<Text style={[GlobalStyles.text, styles.footerText]}>
-						Questions? Click bellow.{' '}
-						<Icon name="ios-information-circle-outline" size={25} color={Colors.LINK} />
-					</Text>
-					<Link
-						onPress={this.callCustomerCare('tel:9876543210')}
-						style={styles.linkPhone}>
-						1(800) 559-3630
-					</Link>
-				</View>
+				<Footer />
 			</View>
 		);
 	}
@@ -86,71 +67,35 @@ const styles = {
 		flex: 1,
 		backgroundColor: '#ffffff'
 	},
-	headerLogo: {
-		flex: 0.4
-	},
 	viewContent: {
-		flex: 0.35,
+		flex: 0.3,
 		flexDirection: 'column',
 		backgroundColor: '#ffffff',
 		justifyContent: 'flex-start',
 		alignItems: 'flex-start',
-		marginLeft: 20,
-		marginTop: 30
+		margin: 20
 	},
 	viewConfirm: {
-		flex: 0.5,
+		flex: 0.7,
 		backgroundColor: Colors.BACKGROUND
 	},
-	viewConfirmText: {
-		flex: 0.2,
-		flexDirection: 'row',
-		justifyContent: 'space-around',
-		alignItems: 'center'
-	},
-	confirmText: {
-		color: '#95989a'
-	},
 	viewConfirmButtonIcon: {
-		flex: 0.8
-	},
-	buttonIconText: {
-		fontSize: GlobalStyles.getAdjustedFontSize(15)
-	},
-	lineUp: {
-		backgroundColor: Colors.BACKGROUND_LINE,
-		height: 100,
-		width: 1,
-		marginTop: 20,
-		marginBottom: 10
-	},
-	footer: {
-		flex: 0.2,
-		backgroundColor: Colors.BACKGROUND,
+		justifyContent: 'center',
 		alignItems: 'center'
-	},
-	footerText: {
-		fontSize: GlobalStyles.getAdjustedFontSize(14),
-		marginBottom: 10
-	},
-	linkPhone: {
-		fontSize: GlobalStyles.getAdjustedFontSize(18)
 	},
 	addPhoto: {
-		flex: 0.2,
+		flex: 1,
+		justifyContent: 'center',
 		alignItems: 'center'
 	},
 	imageContainer: {
-		height: 100,
-		width: 100,
-		borderRadius: 64,
-		marginTop: -50,
+		height: 120,
+		width: 120,
+		borderRadius: 60,
 		backgroundColor: '#fff',
-		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
 		borderWidth: 1,
 		borderColor: Colors.TEXT
-	},
-	image: {}
+	}
 };

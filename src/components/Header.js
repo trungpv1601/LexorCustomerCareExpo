@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image, StatusBar } from 'react-native';
+import { Text, View, Image, ImageBackground, StatusBar } from 'react-native';
 import Colors from '../constants/Colors';
 import GlobalStyles from '../constants/GlobalStyles';
 
@@ -14,13 +14,7 @@ export class Header extends Component {
 		return (
 			<View style={[styles.headerStyle, this.props.style]}>
 				<StatusBar backgroundColor={Colors.BACKGROUND} barStyle="light-content" />
-				<View style={styles.viewImageStyle}>
-					<Image
-						resizeMode="cover"
-						style={styles.imageStyle}
-						source={sourceBackgroundHeader}
-					/>
-				</View>
+				<ImageBackground style={styles.imageStyle} source={sourceBackgroundHeader} />
 				<View style={styles.viewBanner}>
 					<Image
 						style={styles.viewBannerImage}
@@ -40,7 +34,6 @@ const styles = {
 		backgroundColor: Colors.BACKGROUND,
 		justifyContent: 'center'
 	},
-	viewImageStyle: {},
 	imageStyle: {
 		height: 260,
 		width: null
@@ -48,24 +41,22 @@ const styles = {
 	viewBanner: {
 		paddingTop: 5,
 		paddingBottom: 5,
-		marginTop: -45,
+		marginTop: -55,
 		marginLeft: 20,
 		marginRight: 20,
-		width: null,
-		height: 170,
 		backgroundColor: '#ffffff',
 		borderRadius: 3
 	},
 	viewBannerImage: {
 		width: null,
-		height: 70,
-		marginTop: 20,
+		height: 60,
+		marginTop: 10,
 		marginBottom: 20
 	},
 	viewBannerText: {
-		fontSize: GlobalStyles.getAdjustedFontSize(22),
+		fontSize: GlobalStyles.getAdjustedFontSize(20),
 		textAlign: 'center',
 		color: Colors.BACKGROUND,
-		marginBottom: 10
+		margin: 10
 	}
 };

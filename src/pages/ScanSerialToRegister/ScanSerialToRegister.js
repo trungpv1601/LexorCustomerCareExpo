@@ -4,7 +4,6 @@ import { Camera, Permissions } from 'expo';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Actions } from 'react-native-router-flux';
 
-
 export default class ScanSerialToRegister extends Component {
     constructor(props) {
         super(props);
@@ -14,7 +13,7 @@ export default class ScanSerialToRegister extends Component {
         this.state = {
             camera: {
                 type: Camera.Constants.Type.back,
-                torchMode: Camera.Constants.FlashMode.off
+                flashMode: Camera.Constants.FlashMode.off
             },
             hasCameraPermission: null
         };
@@ -60,16 +59,16 @@ export default class ScanSerialToRegister extends Component {
         let newFlashMode;
         const { on, off } = Camera.Constants.FlashMode;
 
-        if (this.state.camera.torchMode === on) {
+        if (this.state.camera.flashMode === on) {
             newFlashMode = off;
-        } else if (this.state.camera.torchMode === off) {
+        } else if (this.state.camera.flashMode === off) {
             newFlashMode = on;
         }
 
         this.setState({
             camera: {
                 ...this.state.camera,
-                torchMode: newFlashMode
+                flashMode: newFlashMode
             }
         });
     };
@@ -78,9 +77,9 @@ export default class ScanSerialToRegister extends Component {
         let icon;
         const { on, off } = Camera.Constants.FlashMode;
 
-        if (this.state.camera.torchMode === on) {
+        if (this.state.camera.flashMode === on) {
             icon = require('./assets/ic_flash_on_white.png');
-        } else if (this.state.camera.torchMode === off) {
+        } else if (this.state.camera.flashMode === off) {
             icon = require('./assets/ic_flash_off_white.png');
         }
 
@@ -90,27 +89,27 @@ export default class ScanSerialToRegister extends Component {
     onBarCodeScanned = (code) => {
         Actions.pop();
         Alert.alert(
-          'Alert Title',
-          code.data,
-          [
-            {
-              text: 'Cancel',
-              onPress: () => console.log('Cancel Pressed'),
-              style: 'cancel',
-            },
-            {text: 'OK', onPress: () => console.log('OK Pressed')},
-          ],
-          {cancelable: false},
+            'Alert Title',
+            code.data,
+            [
+                {
+                    text: 'Cancel',
+                    onPress: () => console.log('Cancel Pressed'),
+                    style: 'cancel'
+                },
+                { text: 'OK', onPress: () => console.log('OK Pressed') }
+            ],
+            { cancelable: false }
         );
         Actions.customerInfo({ data: code.data });
-    }
+    };
 
     render() {
         const { hasCameraPermission } = this.state;
         if (hasCameraPermission === null) {
-          return <View />;
+            return <View />;
         } else if (hasCameraPermission === false) {
-          return (<Text>No access to camera</Text>);
+            return <Text>No access to camera</Text>;
         } else {
             return (
                 <View style={styles.container}>
@@ -122,7 +121,8 @@ export default class ScanSerialToRegister extends Component {
                         style={styles.preview}
                         type={this.state.camera.type}
                         onBarCodeScanned={this.onBarCodeScanned}
-                        torchMode={this.state.camera.torchMode}
+                        flashMode={this.state.camera.flashMode}
+                        autoFocus={Camera.Constants.AutoFocus.on}
                     />
                     <View style={[styles.overlay, styles.topOverlay]}>
                         <TouchableOpacity style={styles.typeButton} onPress={this.switchType}>

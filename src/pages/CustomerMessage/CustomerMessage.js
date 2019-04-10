@@ -13,8 +13,10 @@ import { Col, Row, Grid } from 'react-native-easy-grid';
 import Icon from 'react-native-vector-icons/Ionicons';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import dismissKeyboard from 'react-native/Libraries/Utilities/dismissKeyboard';
-import { ButtonIcon, Link, Button } from '../../components';
+import { Actions } from 'react-native-router-flux';
+import { ButtonIcon, Link, Button, LineFlat } from '../../components';
 import GlobalStyles from '../../constants/GlobalStyles';
+import Colors from '../../constants/Colors';
 
 export default class CustomerMessage extends Component {
 	constructor(props) {
@@ -33,6 +35,14 @@ export default class CustomerMessage extends Component {
 			}
 		});
 	}
+
+	handlePressCancel = () => {
+		Actions.contactCustomerCare();
+	};
+
+	handlePressSend = () => {
+		Actions.customerMessageDone();
+	};
 
 	render() {
 		return (
@@ -58,7 +68,7 @@ export default class CustomerMessage extends Component {
 						</View>
 					</KeyboardAvoidingView>
 					<KeyboardAvoidingView style={styles.viewConfirm} behavior="padding" enabled>
-						<View style={styles.lineFlat} />
+						<LineFlat />
 						<Text style={GlobalStyles.text}>
 							Describe a brief problem of your product.
 						</Text>
@@ -68,7 +78,7 @@ export default class CustomerMessage extends Component {
 						<Text style={[GlobalStyles.text, styles.textToCustomerCare]}>
 							To Customer Care
 						</Text>
-						<View style={styles.lineFlat} />
+						<LineFlat />
 						<TextInput
 							multiline={true}
 							style={styles.multiline}
@@ -86,10 +96,10 @@ export default class CustomerMessage extends Component {
 						</TouchableOpacity>
 						<Grid style={styles.gridButton}>
 							<Col>
-								<Button>Cancel</Button>
+								<Button onPress={this.handlePressCancel}>Cancel</Button>
 							</Col>
 							<Col>
-								<Button>Send</Button>
+								<Button onPress={this.handlePressSend}>Send</Button>
 							</Col>
 						</Grid>
 					</KeyboardAvoidingView>
@@ -161,11 +171,5 @@ const styles = {
 		alignSelf: 'center',
 		fontSize: GlobalStyles.getAdjustedFontSize(18),
 		marginTop: 10
-	},
-	lineFlat: {
-		backgroundColor: Colors.BACKGROUND_LINE,
-		height: 1,
-		width: null,
-		margin: 10
 	}
 };

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { ScrollView, View, Text, FlatList } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Actions } from 'react-native-router-flux';
-import { ButtonIcon, Header } from '../../components';
+import { ButtonIcon, Header, LineFlat, LineUp } from '../../components';
 import GlobalStyles from '../../constants/GlobalStyles';
+import Colors from '../../constants/Colors';
 
 export default class HomeWithProfile extends Component {
 	constructor(props) {
@@ -165,14 +166,14 @@ export default class HomeWithProfile extends Component {
 									onPress={this.handlePressRequestService}>
 									Request Service
 								</ButtonIcon>
-								<View style={styles.lineUp} />
+								<LineUp />
 							</Row>
-							<View style={styles.lineFlat} />
+							<LineFlat />
 							<Row style={{ height: 100 }}>
 								<ButtonIcon icon="md-person" onPress={this.handlePressProfile}>
 									Profile
 								</ButtonIcon>
-								<View style={styles.lineUp} />
+								<LineUp />
 							</Row>
 						</Grid>
 						<Grid>
@@ -183,7 +184,7 @@ export default class HomeWithProfile extends Component {
 									Purchase Part
 								</ButtonIcon>
 							</Row>
-							<View style={styles.lineFlat} />
+							<LineFlat />
 							<Row style={{ height: 100 }}>
 								<ButtonIcon icon="ios-list-box" onPress={this.handlePressHistory}>
 									History
@@ -191,13 +192,14 @@ export default class HomeWithProfile extends Component {
 							</Row>
 						</Grid>
 					</View>
-					<View style={styles.lineFlat} />
+					<LineFlat />
 					<View style={{ flex: 0.2 }}>
 						<Text
 							style={{
 								textAlign: 'center',
 								color: '#95989a',
-								fontSize: GlobalStyles.getAdjustedFontSize(18)
+								fontSize: GlobalStyles.getAdjustedFontSize(18),
+								margin: 20
 							}}>
 							Pending Cases
 						</Text>
@@ -209,7 +211,7 @@ export default class HomeWithProfile extends Component {
 							<View key={item} style={styles.row}>
 								<Text style={styles.rowText}>{item.case}</Text>
 								<Text style={styles.rowText}>{item.date}</Text>
-								<Text style={styles.rowText}>{item.status}</Text>
+								<Text style={styles.rowText}>Pending</Text>
 							</View>
 						)}
 						keyExtractor={(item) => item.case}
@@ -248,19 +250,5 @@ const styles = {
 		color: '#ffffff',
 		paddingLeft: 10,
 		paddingRight: 10
-	},
-	lineUp: {
-		backgroundColor: Colors.BACKGROUND_LINE,
-		height: 60,
-		width: 1,
-		marginTop: 20,
-		marginBottom: 10
-	},
-	lineFlat: {
-		backgroundColor: Colors.BACKGROUND_LINE,
-		height: 1,
-		width: null,
-		margin: 10,
-		marginTop: 10
 	}
 };

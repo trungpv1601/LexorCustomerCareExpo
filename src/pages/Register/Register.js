@@ -11,8 +11,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import dismissKeyboard from 'react-native/Libraries/Utilities/dismissKeyboard';
 import { Actions } from 'react-native-router-flux';
-import { Col, Row, Grid } from 'react-native-easy-grid';
-import { Button, BackButton } from '../../components';
+import { Button, BackButton, LineFlat, Footer } from '../../components';
 import GlobalStyles from '../../constants/GlobalStyles';
 import Colors from '../../constants/Colors';
 
@@ -54,7 +53,7 @@ export default class Register extends Component {
 							</TouchableWithoutFeedback>
 						</View>
 					</View>
-					<View style={styles.lineFlat} />
+					<LineFlat />
 					<KeyboardAvoidingView style={styles.content} behavior="padding" enabled>
 						<Text style={[GlobalStyles.text, styles.text]}>
 							Enter the salon address in the search bar.
@@ -69,12 +68,7 @@ export default class Register extends Component {
 							Send
 						</Button>
 					</KeyboardAvoidingView>
-					<KeyboardAvoidingView style={styles.footer} behavior="padding" enabled>
-						<Text style={[GlobalStyles.text, styles.footerText]}>
-							Questions? Click bellow.
-						</Text>
-						<Text style={styles.linkPhone}>1(800) 559-3630</Text>
-					</KeyboardAvoidingView>
+					<Footer />
 					<KeyboardSpacer onToggle={this.onToggle} />
 				</View>
 			</TouchableWithoutFeedback>
@@ -100,7 +94,7 @@ const styles = {
 		marginTop: 25
 	},
 	headerText: {
-		fontSize: GlobalStyles.getAdjustedFontSize(16),
+		fontSize: GlobalStyles.getAdjustedFontSize(20),
 		padding: 10
 	},
 	content: {
@@ -108,19 +102,11 @@ const styles = {
 		backgroundColor: Colors.BACKGROUND,
 		alignItems: 'center',
 		marginLeft: 20,
-		marginRight: 20
-	},
-	footer: {
-		alignItems: 'center',
-		justifyContent: 'flex-end',
-		marginBottom: 36
-	},
-	footerText: {
-		fontSize: GlobalStyles.getAdjustedFontSize(14),
-		marginBottom: 10
+		marginRight: 20,
+		marginTop: 20
 	},
 	text: {
-		fontSize: GlobalStyles.getAdjustedFontSize(16)
+		fontSize: GlobalStyles.getAdjustedFontSize(18)
 	},
 	textInput: {
 		maxWidth: '95%',
@@ -131,23 +117,11 @@ const styles = {
 		borderRadius: 3,
 		marginTop: 10,
 		padding: 10,
-		fontSize: GlobalStyles.getAdjustedFontSize(16),
+		fontSize: GlobalStyles.getAdjustedFontSize(18),
 		color: Colors.TEXT
 	},
-	linkPhone: {
-		color: Colors.LINK,
-		fontSize: GlobalStyles.getAdjustedFontSize(18),
-		textDecorationLine: 'underline'
-	},
-	lineFlat: {
-		backgroundColor: Colors.BACKGROUND_LINE,
-		height: 1,
-		width: null,
-		margin: 20,
-		marginTop: 10
-	},
 	buttonSend: {
-		width: 90,
+		width: 120,
 		alignSelf: 'center',
 		marginTop: 20
 	}

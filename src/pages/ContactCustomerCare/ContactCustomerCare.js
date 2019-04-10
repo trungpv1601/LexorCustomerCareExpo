@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { Col, Row, Grid } from 'react-native-easy-grid';
-import { ButtonIcon, HeaderLogo } from '../../components';
+import { Col, Grid } from 'react-native-easy-grid';
+import { Actions } from 'react-native-router-flux';
+import { ButtonIcon, HeaderLogo, LineUp } from '../../components';
 import GlobalStyles from '../../constants/GlobalStyles';
+import Colors from '../../constants/Colors';
 
 export default class ContactCustomerCare extends Component {
+	handlePressMessage = () => {
+		Actions.customerMessage();
+	};
+
 	render() {
 		return (
 			<View style={styles.container}>
@@ -39,18 +45,17 @@ export default class ContactCustomerCare extends Component {
 								<ButtonIcon
 									icon="ios-mail"
 									textStyle={styles.buttonIconText}
+									onPress={this.handlePressMessage}
 									style={{ marginTop: 0, marginBottom: 0 }}>
 									Message
 								</ButtonIcon>
 							</Col>
-							<View style={styles.lineUp} />
-							<Col>
-								<View style={styles.viewTollFree}>
-									<Text style={[GlobalStyles.text, styles.toolFreeText]}>
-										Toll free:
-									</Text>
-									<Text style={styles.linkPhone}>1(800) 559-3630</Text>
-								</View>
+							<LineUp />
+							<Col style={styles.viewTollFree}>
+								<Text style={[GlobalStyles.text, styles.toolFreeText]}>
+									Toll free:
+								</Text>
+								<Text style={styles.linkPhone}>1(800) 559-3630</Text>
 							</Col>
 						</Grid>
 					</View>
@@ -73,7 +78,6 @@ const styles = {
 		backgroundColor: '#ffffff',
 		justifyContent: 'center',
 		alignItems: 'flex-start'
-		// marginLeft: 20
 	},
 	viewConfirm: {
 		flex: 0.4,
@@ -114,14 +118,7 @@ const styles = {
 	toolFreeText: {
 		marginBottom: 10
 	},
-	lineUp: {
-		backgroundColor: Colors.BACKGROUND_LINE,
-		height: 70,
-		width: 1,
-		marginTop: 20,
-		marginBottom: 10
-	},
 	buttonIconText: {
-		fontSize: GlobalStyles.getAdjustedFontSize(15)
+		fontSize: GlobalStyles.getAdjustedFontSize(16)
 	}
 };

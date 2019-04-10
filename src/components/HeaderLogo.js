@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image, StatusBar } from 'react-native';
+import { View, Image, ImageBackground, StatusBar } from 'react-native';
 import Colors from '../constants/Colors';
 
 export class HeaderLogo extends Component {
@@ -13,12 +13,11 @@ export class HeaderLogo extends Component {
 			<View style={[styles.headerStyle, this.props.style]}>
 				<StatusBar backgroundColor={Colors.BACKGROUND} barStyle="light-content" />
 				<View style={styles.viewStyle}>
-					<Image
-						resizeMode="cover"
+					<ImageBackground
 						style={styles.imageBackgroundStyle}
-						source={sourceBackgroundHeader}
-					/>
-					<Image style={styles.imageLogo} source={sourceLogoHeader} />
+						source={sourceBackgroundHeader}>
+						<Image style={styles.imageLogo} source={sourceLogoHeader} />
+					</ImageBackground>
 				</View>
 			</View>
 		);
@@ -33,12 +32,12 @@ const styles = {
 		justifyContent: 'center'
 	},
 	viewStyle: {
-		flex: 0.8
+		flex: 1
 	},
 	imageBackgroundStyle: {
 		flex: 1,
-		height: null,
-		width: null
+		height: '100%',
+		width: '100%'
 	},
 	imageLogo: {
 		position: 'absolute',

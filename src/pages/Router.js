@@ -12,6 +12,7 @@ import NoHistory from './NoHistory';
 import RegisterConfirmation from './RegisterConfirmation';
 import CustomerProfile from './CustomerProfile';
 import CustomerMessage from './CustomerMessage';
+import CustomerMessageDone from './CustomerMessageDone';
 
 const RouterComponent = () => {
 	return (
@@ -49,6 +50,11 @@ const RouterComponent = () => {
 				/>
 				<Scene key="customerProfile" component={CustomerProfile} title="CustomerProfile" />
 				<Scene key="customerMessage" component={CustomerMessage} title="CustomerMessage" />
+				<Scene
+					key="customerMessageDone"
+					component={CustomerMessageDone}
+					title="CustomerMessageDone"
+				/>
 			</Stack>
 		</Router>
 	);

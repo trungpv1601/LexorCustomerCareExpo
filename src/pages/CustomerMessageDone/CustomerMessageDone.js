@@ -3,7 +3,7 @@ import { Text } from 'react-native';
 import { LayoutMessage } from '../../layouts';
 import GlobalStyles from '../../constants/GlobalStyles';
 
-export default class RegisterConfirmation extends Component {
+export default class CustomerMessageDone extends Component {
 	render() {
 		return (
 			<LayoutMessage>
