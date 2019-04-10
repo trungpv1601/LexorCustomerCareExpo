@@ -243,7 +243,8 @@ const styles = {
 	sectionHeader: {
 		flex: 1,
 		flexDirection: 'row',
-		justifyContent: 'space-between'
+		justifyContent: 'space-between',
+		marginBottom: 10
 	},
 	sectionHeaderText: {
 		fontSize: GlobalStyles.getAdjustedFontSize(18),
